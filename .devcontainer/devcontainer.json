@@ -63,5 +63,6 @@
     "VisualStudioExptTeam.vscodeintellicode",
     "exiasr.hadolint",
     "bungcip.better-toml"
-  ]
+  ],
+  "postStartCommand": "pip install -U pip && poetry self update && poetry install --no-interaction"
 }
