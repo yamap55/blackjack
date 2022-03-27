@@ -1,4 +1,4 @@
-from hoge.huga import Huga
+from blackjack.huga import Huga
 
 
 class TestHuga:
