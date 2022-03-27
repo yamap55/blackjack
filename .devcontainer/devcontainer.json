@@ -1,10 +1,10 @@
 // ref. https://github.com/Microsoft/vscode-remote-try-python
 {
-  "name": "Python Repository Simple",
+  "name": "blackjack",
   // Use docker-compose.extend.yml to run a command that keeps the container running.
   "dockerComposeFile": ["../docker-compose.yml"],
-  "service": "python_repository_simple",
-  "workspaceFolder": "/project",
+  "service": "blackjack",
+  "workspaceFolder": "/blackjack",
   "shutdownAction": "stopCompose",
   // Comment out the next line to run as root instead. Linux users,
   // update Dockerfile with your user's UID/GID if not 1000.
@@ -63,6 +63,5 @@
     "VisualStudioExptTeam.vscodeintellicode",
     "exiasr.hadolint",
     "bungcip.better-toml"
-  ],
-  "postStartCommand": "pip install -U pip && poetry self update && poetry install --no-interaction"
+  ]
 }

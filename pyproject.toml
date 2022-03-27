@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "python_repository_simple"
+name = "blackjack"
 version = "0.0.0"
-description = "python_repository_simple"
+description = "blackjack"
 authors = ["yamap55"]
 license = "MIT"
 
