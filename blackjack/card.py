@@ -21,3 +21,9 @@ class Card:
     def __repr__(self) -> str:
         """repr"""
         return str({"suit": self.suit.name, "number": self.number})
+
+    def __eq__(self, __o: object) -> bool:
+        """equal"""
+        if not isinstance(__o, Card):
+            return False
+        return self.suit == __o.suit and self.number == __o.number
