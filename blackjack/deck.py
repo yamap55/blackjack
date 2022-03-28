@@ -6,6 +6,10 @@ from blackjack.suit import Suit
 
 
 class Deck:
+    """
+    deck
+    """
+
     def __init__(self) -> None:
         """init"""
         self.cards = [Card(suit, number) for suit, number in product(Suit, range(1, 14))]
