@@ -23,4 +23,10 @@ class TestDeck:
             expected = sorted(unique_cards)
             assert actual == expected
 
+        def test_range_1_13(self):
+            numbers = set([c.number for c in self.deck.cards])
+
+            assert min(numbers) == 1
+            assert max(numbers) == 13
+
 # TODO: add unittest 1..13 number
