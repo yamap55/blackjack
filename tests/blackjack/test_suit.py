@@ -1,4 +1,5 @@
 import pytest
+
 from blackjack.suit import Suit
 
 
@@ -10,8 +11,11 @@ class TestSuit:
             (Suit.HEART, 2),
             (Suit.DIAMOND, 3),
             (Suit.CLUB, 4),
-        ]
+        ],
     )
     def test_value(self, suit, expected):
         actual = suit.value
         assert actual == expected
+
+
+# TODO: add test case < > <= >=

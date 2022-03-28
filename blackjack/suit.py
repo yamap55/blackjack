@@ -23,3 +23,21 @@ class Suit(Enum):
         """repr"""
         cls_name = self.__class__.__name__
         return f"{cls_name}.{self.name}"
+
+    def __lt__(self, other: object) -> bool:
+        """lt"""
+        if not isinstance(other, Suit):
+            return NotImplemented
+        return self.value < other.value
+
+    def __le__(self, other) -> bool:
+        """le"""
+        return self.__lt__(other) or self.__eq__(other)
+
+    def __gt__(self, other) -> bool:
+        """gt"""
+        return not self.__le__(other)
+
+    def __ge__(self, other) -> bool:
+        """ge"""
+        return not self.__lt__(other)
