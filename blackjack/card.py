@@ -35,7 +35,7 @@ class Card:
         """eq"""
         if not isinstance(other, Card):
             return False
-        return super().__eq__(other)
+        return self.suit == other.suit and self.number == other.number
 
     def __ne__(self, other) -> bool:
         """ne"""

@@ -40,7 +40,7 @@ class TestCard:
             card1 = Card(Suit.SPADE, 1)
             card2 = 1
 
-            assert card1 == card2
+            assert card1 != card2
 
 
 # TODO: add unittest
