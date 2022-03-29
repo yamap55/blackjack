@@ -17,5 +17,14 @@ class TestSuit:
         actual = suit.value
         assert actual == expected
 
+    def test_lt(self):
+        assert Suit.SPADE < Suit.HEART < Suit.DIAMOND < Suit.CLUB
 
-# TODO: add test case < > <= >=
+    def test_gt(self):
+        assert Suit.CLUB > Suit.DIAMOND > Suit.HEART > Suit.SPADE
+
+    def test_le(self):
+        assert Suit.SPADE <= Suit.HEART <= Suit.DIAMOND <= Suit.CLUB
+
+    def test_ge(self):
+        assert Suit.CLUB >= Suit.DIAMOND >= Suit.HEART >= Suit.SPADE

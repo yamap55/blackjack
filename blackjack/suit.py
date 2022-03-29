@@ -27,12 +27,12 @@ class Suit(Enum):
     def __lt__(self, other: object) -> bool:
         """lt"""
         if not isinstance(other, Suit):
-            return NotImplemented
+            raise TypeError(f"not supported instance {type(other)}")
         return self.value < other.value
 
     def __le__(self, other) -> bool:
         """le"""
-        return self.__lt__(other) or self.__eq__(other)
+        return self.__lt__(other) or self == other
 
     def __gt__(self, other) -> bool:
         """gt"""
