@@ -26,7 +26,7 @@ class Card:
     def __lt__(self, other: object) -> bool:
         """lt"""
         if not isinstance(other, Card):
-            return NotImplemented
+            raise TypeError(f"not supported instance {type(other)}")
         if self.suit != other.suit:
             return self.suit < other.suit
         return self.number < other.number
