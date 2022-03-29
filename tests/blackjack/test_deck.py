@@ -1,5 +1,6 @@
 import pytest
 
+from blackjack.card import Card
 from blackjack.deck import Deck
 from blackjack.suit import Suit
 
@@ -33,3 +34,18 @@ class TestDeck:
             actual = sorted(list(set([c.suit for c in self.deck.cards])))
             expected = sorted(list(Suit))
             assert actual == expected
+
+    def test_shuffle_cards(self):
+        deck = Deck(0)
+
+        # samping
+        actual = deck.cards[:5]
+        expected = [
+            Card(Suit.DIAMOND, 3),
+            Card(Suit.SPADE, 13),
+            Card(Suit.CLUB, 7),
+            Card(Suit.CLUB, 3),
+            Card(Suit.DIAMOND, 13),
+        ]
+
+        assert actual == expected
