@@ -28,7 +28,7 @@ class Card:
         if not isinstance(other, Card):
             return NotImplemented
         if self.suit != other.suit:
-            return self.suit.value < other.suit.value
+            return self.suit < other.suit
         return self.number < other.number
 
     def __eq__(self, other) -> bool:
