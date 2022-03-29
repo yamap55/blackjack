@@ -17,3 +17,14 @@ class Deck:
         self.cards = [Card(suit, number) for suit, number in product(Suit, range(1, 14))]
         random = Random(seed) if seed is not None else Random()
         random.shuffle(self.cards)
+
+    def pop(self) -> Card:
+        """
+        pop card
+
+        Returns
+        -------
+        Card
+            pop card
+        """
+        return self.cards.pop()

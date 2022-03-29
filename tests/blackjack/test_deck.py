@@ -49,3 +49,21 @@ class TestDeck:
         ]
 
         assert actual == expected
+
+    class TestPop:
+        @pytest.fixture(autouse=True)
+        def setup(self):
+            self.deck = Deck()
+
+        def test_not_args(self):
+            card = self.deck.pop()
+
+            assert card not in self.deck.cards
+            assert len(self.deck.cards) == 51
+
+        def test_empty_cards(self):
+
+            self.deck.cards = []
+
+            with pytest.raises(IndexError):
+                self.deck.pop()
