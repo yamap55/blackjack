@@ -28,3 +28,14 @@ class Deck:
             pop card
         """
         return self.cards.pop()
+
+    def __len__(self) -> int:
+        """
+        len
+
+        Returns
+        -------
+        int
+            deck length
+        """
+        return len(self.cards)

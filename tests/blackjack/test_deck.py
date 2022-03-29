@@ -67,3 +67,15 @@ class TestDeck:
 
             with pytest.raises(IndexError):
                 self.deck.pop()
+
+    class TestLen:
+        @pytest.fixture(autouse=True)
+        def setup(self):
+            self.deck = Deck()
+
+        def test_default(self):
+            assert len(self.deck) == 52
+
+        def test_after_pop(self):
+            self.deck.pop()
+            assert len(self.deck) == 51
