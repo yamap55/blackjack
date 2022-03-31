@@ -17,7 +17,7 @@ class Card:
 
     def __str__(self) -> str:
         """str"""
-        return f"Card: {self.suit.name} {self.number}"
+        return f"{self.suit.emoji}{self.number}"
 
     def __repr__(self) -> str:
         """repr"""

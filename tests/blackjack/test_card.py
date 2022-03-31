@@ -7,7 +7,7 @@ class TestCard:
         card = Card(Suit.SPADE, 1)
 
         actual = str(card)
-        expected = "Card: SPADE 1"
+        expected = "♠1"
         assert actual == expected
 
     def test_repr(self):
