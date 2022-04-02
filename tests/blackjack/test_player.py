@@ -10,14 +10,14 @@ class TestPlayer:
         def test_args_not_exists(self):
             player = Player()
 
-            actual = player.cards
+            actual = player.hands
             expected = []
             assert actual == expected
 
         def test_args_exists(self):
             player = Player([Card(Suit.SPADE, 1)])
 
-            actual = player.cards
+            actual = player.hands
             expected = [Card(Suit.SPADE, 1)]
             assert actual == expected
 
@@ -38,7 +38,7 @@ class TestPlayer:
             player = Player()
             player.append_card(Card(Suit.SPADE, 1))
 
-            actual = player.cards
+            actual = player.hands
             expected = [Card(Suit.SPADE, 1)]
             assert actual == expected
 
@@ -47,6 +47,6 @@ class TestPlayer:
             player.append_card(Card(Suit.SPADE, 1))
             player.append_card(Card(Suit.SPADE, 2))
 
-            actual = player.cards
+            actual = player.hands
             expected = [Card(Suit.SPADE, 1), Card(Suit.SPADE, 2)]
             assert actual == expected
