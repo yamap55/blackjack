@@ -18,14 +18,14 @@ class Deck:
         random = Random(seed) if seed is not None else Random()
         random.shuffle(self.cards)
 
-    def pop(self) -> Card:
+    def draw(self) -> Card:
         """
-        pop card
+        draw card
 
         Returns
         -------
         Card
-            pop card
+            draw card
         """
         return self.cards.pop()
 

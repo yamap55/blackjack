@@ -50,13 +50,13 @@ class TestDeck:
 
         assert actual == expected
 
-    class TestPop:
+    class TestDraw:
         @pytest.fixture(autouse=True)
         def setup(self):
             self.deck = Deck()
 
         def test_not_args(self):
-            card = self.deck.pop()
+            card = self.deck.draw()
 
             assert card not in self.deck.cards
             assert len(self.deck.cards) == 51
@@ -66,7 +66,7 @@ class TestDeck:
             self.deck.cards = []
 
             with pytest.raises(IndexError):
-                self.deck.pop()
+                self.deck.draw()
 
     class TestLen:
         @pytest.fixture(autouse=True)
@@ -76,6 +76,6 @@ class TestDeck:
         def test_default(self):
             assert len(self.deck) == 52
 
-        def test_after_pop(self):
-            self.deck.pop()
+        def test_after_draw(self):
+            self.deck.draw()
             assert len(self.deck) == 51
