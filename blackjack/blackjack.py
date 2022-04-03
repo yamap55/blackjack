@@ -13,7 +13,7 @@ class _Blackjack:
 
     def _get_cards(self, player: Player) -> list[Card]:
         """get cards"""
-        return player.cards
+        return player.hands
 
     def get_player_cards(self) -> list[Card]:
         """get player cards"""
