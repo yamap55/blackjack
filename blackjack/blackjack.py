@@ -23,6 +23,17 @@ class _Blackjack:
         """get dealer cards"""
         return self._get_cards(self.dealer)
 
+    def get_table_cards(self) -> tuple[list[Card], list[Card]]:
+        """
+        get table cards
+
+        Returns
+        -------
+        tuple[list[Card], list[Card]]
+            player cards, dealer cards
+        """
+        return self.get_player_cards(), self.get_dealer_cards()
+
     def append_player_card(self) -> None:
         """append player card"""
         self.player.append_card(self.deck.draw())
@@ -42,6 +53,18 @@ class _Blackjack:
         if self.dealer.total > 21:
             raise ValueError("dealer bust")
 
+    def judge(self) -> None:
+        """judge"""
+        if self.get_winner() == "player":
+            self.player.win()
+            self.dealer.lose()
+        elif self.get_winner() == "dealer":
+            self.dealer.win()
+            self.player.lose()
+        else:
+            self.player.draw()
+            self.dealer.draw()
+
     def get_winner(self) -> str:
         """get winner"""
         # TODO: 勝負！みたいなメソッド名にする
@@ -55,6 +78,16 @@ class _Blackjack:
             return "dealer"
         else:
             return "draw"
+
+    def play(self) -> None:
+        """play"""
+
+        self.append_player_card()
+        self.append_player_card()
+        self.append_dealer_card()
+        self.append_dealer_card()
+        self.dealer_play()
+        self.judge()
 
 
 class Blackjack:
