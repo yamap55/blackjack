@@ -53,12 +53,20 @@ class _Blackjack:
         if self.dealer.total > 21:
             raise ValueError("dealer bust")
 
-    def judge(self) -> None:
-        """judge"""
-        if self.get_winner() == "player":
+    def judge(self) -> str:
+        """
+        judge
+
+        Returns
+        -------
+        str
+
+        """
+
+        if self.player.total > self.dealer.total:
             self.player.win()
             self.dealer.lose()
-        elif self.get_winner() == "dealer":
+        elif self.player.total < self.dealer.total:
             self.dealer.win()
             self.player.lose()
         else:
