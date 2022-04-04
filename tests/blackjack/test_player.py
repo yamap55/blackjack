@@ -17,7 +17,7 @@ class TestPlayer:
             assert actual == expected
 
         def test_hands_args_exists(self):
-            player = Player([Card(Suit.SPADE, 1)])
+            player = Player(hands=[Card(Suit.SPADE, 1)])
 
             actual = player.hands
             expected = [Card(Suit.SPADE, 1)]
@@ -33,9 +33,21 @@ class TestPlayer:
             expected = 0
             assert actual == expected
 
+        def test_name_default(self, player: Player):
+            actual = player.name
+            expected = "player"
+            assert actual == expected
+
+        def test_name_args(self):
+            player = Player(name="test")
+
+            actual = player.name
+            expected = "test"
+            assert actual == expected
+
     class TestTotal:
         def test_total(self):
-            player = Player([Card(Suit.SPADE, 1), Card(Suit.SPADE, 2)])
+            player = Player(hands=[Card(Suit.SPADE, 1), Card(Suit.SPADE, 2)])
 
             actual = player.total
             expected = 3
