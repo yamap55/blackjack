@@ -8,8 +8,9 @@ from blackjack.card import Card
 class Player:
     """player"""
 
-    def __init__(self, hands: Optional[list[Card]] = None) -> None:
+    def __init__(self, name: Optional[str] = None, hands: Optional[list[Card]] = None) -> None:
         """init"""
+        self.name = name or "player"
         self.hands = hands or []
         self.game_count = 0
         self.win_count = 0
