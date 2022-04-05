@@ -60,42 +60,20 @@ class _Blackjack:
         Returns
         -------
         str
-
+            winner
         """
-
         if self.player.total > self.dealer.total:
             self.player.win()
             self.dealer.lose()
+            return player.name
         elif self.player.total < self.dealer.total:
             self.dealer.win()
             self.player.lose()
+            return dealer.name
         else:
             self.player.draw()
             self.dealer.draw()
-
-    def get_winner(self) -> str:
-        """get winner"""
-        # TODO: 勝負！みたいなメソッド名にする
-        if self.player.total > 21:
-            return "dealer"
-        elif self.dealer.total > 21:
-            return "player"
-        elif self.player.total > self.dealer.total:
-            return "player"
-        elif self.player.total < self.dealer.total:
-            return "dealer"
-        else:
             return "draw"
-
-    def play(self) -> None:
-        """play"""
-
-        self.append_player_card()
-        self.append_player_card()
-        self.append_dealer_card()
-        self.append_dealer_card()
-        self.dealer_play()
-        self.judge()
 
 
 class Blackjack:
