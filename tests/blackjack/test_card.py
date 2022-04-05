@@ -1,14 +1,45 @@
+import pytest
+
 from blackjack.card import Card
 from blackjack.suit import Suit
 
 
 class TestCard:
-    def test_str(self):
-        card = Card(Suit.SPADE, 1)
+    class TestStr:
+        @pytest.mark.parametrize(
+            "suit, number, expected",
+            [
+                (Suit.SPADE, 2, "♠2"),
+                (Suit.SPADE, 3, "♠3"),
+                (Suit.SPADE, 4, "♠4"),
+                (Suit.SPADE, 5, "♠5"),
+                (Suit.SPADE, 6, "♠6"),
+                (Suit.SPADE, 7, "♠7"),
+                (Suit.SPADE, 8, "♠8"),
+                (Suit.SPADE, 9, "♠9"),
+                (Suit.SPADE, 10, "♠10"),
+            ],
+        )
+        def test_pip_card(self, suit, number, expected):
+            card = Card(suit, number)
 
-        actual = str(card)
-        expected = "♠1"
-        assert actual == expected
+            actual = str(card)
+            assert actual == expected
+
+        @pytest.mark.parametrize(
+            "suit, number, expected",
+            [
+                (Suit.SPADE, 1, "♠A"),
+                (Suit.SPADE, 11, "♠J"),
+                (Suit.SPADE, 12, "♠Q"),
+                (Suit.SPADE, 13, "♠K"),
+            ],
+        )
+        def test_face_card(self, suit, number, expected):
+            card = Card(suit, number)
+
+            actual = str(card)
+            assert actual == expected
 
     def test_repr(self):
         card = Card(Suit.SPADE, 1)
