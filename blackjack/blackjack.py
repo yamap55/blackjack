@@ -119,6 +119,28 @@ class _Blackjack:
         return tuple([str([str(cc) for cc in c]).replace("'", "") for c in cards])
 
 
+class BlackjackCard(Card):
+    """blackjack card"""
+
+    def __init__(self, card: Card) -> None:
+        """init"""
+        super().__init__(number=card.number, suit=card.suit)
+        self.blackjack_value = 10 if self.number >= 10 else self.number
+
+
+class BlackjackPlayer(Player):
+    """blackjack player"""
+
+    def __init__(self, player: Player) -> None:
+        """init"""
+        super().__init__(player.name, player.hands)
+
+    @property
+    def total(self) -> int:
+        """total"""
+        return sum(card.blackjack_value for card in self.hands)  # type: ignore
+
+
 class Blackjack:
     """blackjack"""
 
