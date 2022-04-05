@@ -62,18 +62,61 @@ class _Blackjack:
         str
             winner
         """
+        if self.player.total > 21:
+            self.dealer.win()
+            self.player.lose()
+            return self.dealer.name
+        elif self.dealer.total > 21:
+            self.player.win()
+            self.dealer.lose()
+            return self.player.name
         if self.player.total > self.dealer.total:
             self.player.win()
             self.dealer.lose()
-            return player.name
+            return self.player.name
         elif self.player.total < self.dealer.total:
             self.dealer.win()
             self.player.lose()
-            return dealer.name
+            return self.dealer.name
         else:
             self.player.draw()
             self.dealer.draw()
             return "draw"
+
+    def play(self) -> None:
+        """play"""
+        try:
+            while (
+                input(
+                    f"player hands{self._convert_prety_cards(self.get_player_cards())[0]} hit?[Y/n]: "  # noqa: E501
+                )
+                == "Y"
+            ):
+                self.append_player_card()
+            self.dealer_play()
+        except ValueError as e:
+            print(e)
+        winner = self.judge()
+        player_cards, dealer_cards = self._convert_prety_cards(*self.get_table_cards())  # type: ignore # noqa: E501
+
+        print(f"player hands: {player_cards}, dealer hands: {dealer_cards}")
+        print(f"winner: {winner}")
+
+    def _convert_prety_cards(self, *cards: list[Card]) -> tuple[str]:
+        """
+        convert prety cards
+
+        Parameters
+        ----------
+        cards : list[Card]
+            cards
+
+        Returns
+        -------
+        str
+            prety cards
+        """
+        return tuple([str([str(cc) for cc in c]).replace("'", "") for c in cards])
 
 
 class Blackjack:
