@@ -15,9 +15,25 @@ class Card:
     suit: Suit
     number: int
 
+    __VISUAL_NUMBER = {
+        1: "A",
+        2: "2",
+        3: "3",
+        4: "4",
+        5: "5",
+        6: "6",
+        7: "7",
+        8: "8",
+        9: "9",
+        10: "10",
+        11: "J",
+        12: "Q",
+        13: "K",
+    }
+
     def __str__(self) -> str:
         """str"""
-        return f"{self.suit.emoji}{self.number}"
+        return f"{self.suit.emoji}{self.__VISUAL_NUMBER[self.number]}"
 
     def __repr__(self) -> str:
         """repr"""
